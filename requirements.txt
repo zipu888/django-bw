@@ -1,0 +1,8 @@
+numpy>=1.17.0
+opencv-python
+setuptools
+PyWavelets
+Django
+pycryptodemo
+bce-python-sdk
+blind_watermark

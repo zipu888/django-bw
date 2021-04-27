@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script>
+        $(function(){
+            $("#makeBw").click(function(){
+                console.log("form button click");
+                var form = new FormData(document.getElementById("tf"));
+                $.ajax({
+                    url:"/uploadFile/",
+                    type:"post",
+                    data:form,
+                    processData:false,
+                    contentType:false,
+                    success:function(data){
+                       console.log(data)
+                       $("#srcImg").attr("src",data.srcImg);
+                       $("#desImg").attr("src",data.desImg)
+                    },
+                    error:function(e){
+                        console.log("error")
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+
+
+
+<form id="tf" action="/uploadFile/"  enctype="multipart/form-data" method="post" style="border:1px solid red;with:200px;height:300px">
+{% csrf_token %}
+  <input type="file" name="img">
+
+  <br/>
+  <br/>
+  <br/>
+
+  <input id="makeBw" type="button" value="submit">
+
+</form>
+
+<img id="srcImg" src=""/>
+
+<br/>
+
+<img id="desImg" src=""/>
+
+</body>
+</html>
