@@ -41,7 +41,7 @@ def savefile(request):
         len_wm = len(bwm1.wm_bit)
         print('Put down the length of wm_bit {len_wm}'.format(len_wm=len_wm))
         img = cv.imread('static/uploadfiles/bwfiles/' + file_obj.name)
-        # 降噪处理
+       # 降噪处理
         dst = cv.fastNlMeansDenoisingColored(img, None, 7, 7, 7, 21)
         cv.imwrite('static/uploadfiles/sfiles/' + file_obj.name, dst, params=None)
 
