@@ -8,6 +8,11 @@
         $(function(){
             $("#makeBw").click(function(){
                 console.log("form button click");
+                $("#srcImg").attr("src","")
+                $("#desImg").attr("src","")
+                $("#secImg").attr("src","")
+                $("#makeBw").attr('disabled',true);
+                $("#makeBw").val("已经提交请等待处理结果");
                 var form = new FormData(document.getElementById("tf"));
                 $.ajax({
                     url:"/uploadFile/",
@@ -18,10 +23,15 @@
                     success:function(data){
                        console.log(data)
                        $("#srcImg").attr("src",data.srcImg);
-                       $("#desImg").attr("src",data.desImg)
+                       $("#desImg").attr("src",data.desImg);
+                       $("#secImg").attr("src",data.secImg)
+                       $("#makeBw").attr('disabled',false);
+                       $("#makeBw").val("上传图片");
                     },
                     error:function(e){
-                        console.log("error")
+                        console.log("error");
+                        $("#makeBw").attr('disabled',false);
+                       $("#makeBw").val("上传图片");
                     }
                 });
             });
@@ -40,15 +50,20 @@
   <br/>
   <br/>
 
-  <input id="makeBw" type="button" value="submit">
+  <input id="makeBw" type="button" value="上传图片">
 
 </form>
-
+<h4>原图</h4>
 <img id="srcImg" src=""/>
 
 <br/>
-
+<h4>添加隐藏水印</h4>
 <img id="desImg" src=""/>
+
+<br/>
+<h4>隐藏水印后进行降噪处理</h4>
+<img id="secImg" src=""/>
+
 
 </body>
 </html>
