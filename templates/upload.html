@@ -15,7 +15,7 @@
                 $("#makeBw").val("已经提交请等待处理结果");
                 var form = new FormData(document.getElementById("tf"));
                 $.ajax({
-                    url:"/uploadFile/",
+                    url:"./uploadFile/",
                     type:"post",
                     data:form,
                     processData:false,
