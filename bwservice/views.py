@@ -20,11 +20,6 @@ def upload(request):
     context = {'hello': 'Hello World!'}
     return render(request, 'upload.html', context)
 
-
-'django.middleware.csrf.CsrfViewMiddleware',
-from django.views.decorators.csrf import csrf_exempt
-
-@csrf_exempt
 def savefile(request):
     if request.method == 'POST':
         print(request)
@@ -53,4 +48,10 @@ def savefile(request):
             'srcImg': '/static/uploadfiles/' + file_obj.name,
             'desImg': '/static/uploadfiles/bwfiles/' + file_obj.name
         }
-    return HttpResponse(json.dumps(data), content_type="application/json")
+
+        result={
+            'code':0,
+            'msg':'success',
+            'data':data
+        }
+    return HttpResponse(json.dumps(result), content_type="application/json")

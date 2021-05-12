@@ -22,6 +22,7 @@
                     contentType:false,
                     success:function(data){
                        console.log(data)
+                       data=data.data;
                        $("#srcImg").attr("src",'..'+data.srcImg);
                        $("#desImg").attr("src",'..'+data.desImg);
                        //$("#secImg").attr("src",'..'+data.secImg)
