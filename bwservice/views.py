@@ -47,7 +47,6 @@ def savefile(request):
 
         data = {
             'srcImg': '/static/uploadfiles/' + file_obj.name,
-            'desImg': '/static/uploadfiles/bwfiles/' + file_obj.name,
-            'secImg': '/static/uploadfiles/sfiles/' + file_obj.name
+            'desImg': '/static/uploadfiles/bwfiles/' + file_obj.name
         }
     return HttpResponse(json.dumps(data), content_type="application/json")
