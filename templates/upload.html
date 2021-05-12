@@ -22,9 +22,9 @@
                     contentType:false,
                     success:function(data){
                        console.log(data)
-                       $("#srcImg").attr("src",data.srcImg);
-                       $("#desImg").attr("src",data.desImg);
-                       $("#secImg").attr("src",data.secImg)
+                       $("#srcImg").attr("src",'..'+data.srcImg);
+                       $("#desImg").attr("src",'..'+data.desImg);
+                       $("#secImg").attr("src",'..'+data.secImg)
                        $("#makeBw").attr('disabled',false);
                        $("#makeBw").val("上传图片");
                     },
